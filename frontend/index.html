@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ray - Đăng nhập tài khoản</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <div class="card-wrapper">
+      
+      <!-- Giao diện Đăng Nhập (Login Screen) -->
+      <div id="login-screen" class="form-screen active">
+        <div class="banner">
+          <div class="logo-box">
+            <!-- Icon con cá đuối Ray hồng neon -->
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C11.5 4 8 6 4 9C2 10.5 2 11.5 5 11.5C9 11.5 11 11 12 14C13 11 15 11.5 19 11.5C22 11.5 22 10.5 20 9C16 6 12.5 4 12 2Z" fill="#EC4899" />
+              <path d="M12 14V22" stroke="#EC4899" stroke-width="2" />
+            </svg>
+          </div>
+          <h1>Welcome to Ray</h1>
+          <p>Hãy tìm hướng đi cho bạn</p>
+        </div>
+
+        <div class="form-content">
+          <div id="login-error" class="error-banner hidden"></div>
+
+          <form id="login-form">
+            <div class="form-group">
+              <label>Số điện thoại</label>
+              <div class="input-wrapper">
+                <span class="prefix">VN | +84</span>
+                <input type="tel" id="login-phone" placeholder="e.g. 0901234567" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Mật khẩu</label>
+              <div class="input-wrapper">
+                <input type="password" id="login-password" placeholder="Nhập mật khẩu của bạn" required>
+                <button type="button" id="btn-toggle-password" class="toggle-btn">👁️</button>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-container">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                Ghi nhớ đăng nhập
+              </label>
+              <a href="#" class="forgot-link">Quên mật khẩu?</a>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span>Đăng nhập</span>
+              <span class="arrow">→</span>
+            </button>
+          </form>
+
+          <div class="separator">
+            <span>Hoặc chọn nhanh demo</span>
+          </div>
+
+          <div class="demo-options">
+            <button type="button" id="btn-demo" class="demo-btn">
+              <div class="demo-btn-info">
+                <strong>Thành viên dùng thử</strong>
+                <span>SĐT: 0901234567 | MK: admin123</span>
+              </div>
+              <span class="badge">Chọn</span>
+            </button>
+          </div>
+
+          <p class="switch-prompt">
+            Chưa có tài khoản? 
+            <button type="button" class="link-switch" onclick="switchScreen('register-screen')">Đăng ký ngay</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- Giao diện Đăng Ký (Register Screen) -->
+      <div id="register-screen" class="form-screen">
+        <div class="banner bg-pink-deep">
+          <button type="button" class="back-btn" onclick="switchScreen('login-screen')">←</button>
+          <div class="logo-box bg-white">
+            <svg class="logo-icon animate-swim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C11.5 4 8 6 4 9C2 10.5 2 11.5 5 11.5C9 11.5 11 11 12 14C13 11 15 11.5 19 11.5C22 11.5 22 10.5 20 9C16 6 12.5 4 12 2Z" fill="#DB2777" />
+              <path d="M12 14V22" stroke="#DB2777" stroke-width="2" />
+            </svg>
+          </div>
+          <h1>Welcome to Ray</h1>
+          <p>Register in 1 minute</p>
+        </div>
+
+        <div class="form-content">
+          <div id="register-error" class="error-banner hidden"></div>
+          <div id="register-success" class="success-banner hidden">
+            <span>🎉 Đăng ký tài khoản thành công! Hệ thống đang tự động đăng nhập...</span>
+          </div>
+
+          <form id="register-form">
+            <div class="form-group">
+              <label>Vai trò thành viên:</label>
+              <div class="segment-control">
+                <button type="button" id="role-passenger" class="segment-btn active" onclick="setRole('user')">Khách Hàng</button>
+                <button type="button" id="role-driver" class="segment-btn" onclick="setRole('creator')">Quản lý</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Họ và Tên</label>
+              <div class="input-wrapper">
+                <input type="text" id="reg-fullname" placeholder="e.g. Nguyễn Văn A" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Số điện thoại VN</label>
+              <div class="input-wrapper">
+                <span class="prefix">+84</span>
+                <input type="tel" id="reg-phone" placeholder="e.g. 0933444555" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Địa chỉ Email</label>
+              <div class="input-wrapper">
+                <input type="email" id="reg-email" placeholder="example@gmail.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Mật khẩu</label>
+              <div class="input-wrapper">
+                <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự" required>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-container">
+                <input type="checkbox" id="reg-agree" required>
+                <span class="checkmark"></span>
+                <span class="terms-text">Tôi hoàn toàn đồng ý điều khoản sử dụng của Ray</span>
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn bg-pink-deep">Đăng ký ngay</button>
+          </form>
+
+          <p class="switch-prompt">
+            Đã có tài khoản? 
+            <button type="button" class="link-switch" onclick="switchScreen('login-screen')">Đăng nhập</button>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

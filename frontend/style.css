@@ -1,0 +1,415 @@
+/* Toàn bộ style thiết lập Ray Premium (Pink Theme) v1.0.0 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #FFF1F2; /* Hồng phấn cực kỳ nhẹ dịu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.card-wrapper {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -5px rgba(219, 39, 119, 0.1), 0 8px 12px -6px rgba(219, 39, 119, 0.05);
+  border: 1px solid #FFE4E6;
+  overflow: hidden;
+}
+
+/* Ẩn hiện màn hình */
+.form-screen {
+  display: none;
+}
+
+.form-screen.active {
+  display: block;
+}
+
+/* Banner Đầu Trang */
+.banner {
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); /* Màu hồng ngọt ngào neon */
+  color: #ffffff;
+  padding: 36px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner.bg-pink-deep {
+  background: linear-gradient(135deg, #DB2777 0%, #9D174D 100%);
+}
+
+.banner h1 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 16px;
+  letter-spacing: -0.5px;
+}
+
+.banner p {
+  font-size: 13px;
+  color: #FFE4E6;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.logo-box {
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.15);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Biểu mẫu Content */
+.form-content {
+  padding: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9D174D; /* Hồng đậm cá tính */
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* Input Wrappers */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #FFF5F5;
+  border: 1px solid #FECDD3;
+  border-radius: 12px;
+  width: 100%;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #EC4899;
+  background-color: #ffffff;
+}
+
+.input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #4C0519;
+  font-weight: 500;
+  outline: none;
+}
+
+.prefix {
+  padding-left: 14px;
+  font-size: 13px;
+  color: #9D174D;
+  font-weight: 600;
+  border-right: 1px solid #FDA4AF;
+  padding-right: 10px;
+  user-select: none;
+}
+
+.toggle-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding-right: 14px;
+  font-size: 16px;
+}
+
+/* Options */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  color: #4C0519;
+  user-select: none;
+}
+
+.checkmark {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #FDA4AF;
+  border-radius: 4px;
+  margin-right: 8px;
+  display: inline-block;
+  background-color: white;
+  transition: all 0.2s;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #EC4899;
+  border-color: #EC4899;
+}
+
+.forgot-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: #EC4899;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* Nút Submit */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #EC4899;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+}
+
+.submit-btn:hover {
+  background: #DB2777;
+}
+
+.submit-btn:active {
+  transform: scale(0.99);
+}
+
+.submit-btn.bg-pink-deep {
+  background: #DB2777;
+}
+
+.submit-btn.bg-pink-deep:hover {
+  background: #BE185D;
+}
+
+/* Separator & Demo Buttons */
+.separator {
+  position: relative;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #FFE4E6;
+  z-index: 1;
+}
+
+.separator span {
+  position: relative;
+  background: #ffffff;
+  padding: 0 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #F43F5E;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.demo-btn {
+  width: 100%;
+  padding: 12px;
+  background: #FFF1F2;
+  border: 1px dashed #FECDD3;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.demo-btn:hover {
+  background: #FFE4E6;
+}
+
+.demo-btn-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-btn-info strong {
+  font-size: 11px;
+  color: #9D174D;
+}
+
+.demo-btn-info span {
+  font-size: 10px;
+  color: #BE185D;
+  margin-top: 2px;
+}
+
+.badge {
+  background: #EC4899;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Switch Prompt text */
+.switch-prompt {
+  text-align: center;
+  font-size: 13px;
+  color: #9D174D;
+  margin-top: 24px;
+}
+
+.link-switch {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: #EC4899;
+  cursor: pointer;
+}
+
+.link-switch:hover {
+  text-decoration: underline;
+}
+
+/* Banners thông báo trạng thái */
+.error-banner {
+  background: #FFF1F2;
+  border: 1px solid #FFE4E6;
+  color: #E11D48;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.success-banner {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #166534;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Segmented Buttons for role select */
+.segment-control {
+  background: #FFE4E6;
+  padding: 4px;
+  border-radius: 10px;
+  display: flex;
+  gap: 4px;
+}
+
+.segment-btn {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #9D174D;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.segment-btn.active {
+  background: #DB2777;
+  color: white;
+}
+
+.terms-text {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+@keyframes swim {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+.animate-swim {
+  animation: swim 3s ease-in-out infinite;
+}
