@@ -1,4 +1,3 @@
-/* Toàn bộ style thiết lập Ray Premium (Pink Theme) v1.0.0 */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +6,7 @@
 }
 
 body {
-  background-color: #FFF1F2; /* Hồng phấn cực kỳ nhẹ dịu */
+  background-color: #FFF1F2; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +27,7 @@ body {
   overflow: hidden;
 }
 
-/* Ẩn hiện màn hình */
+
 .form-screen {
   display: none;
 }
@@ -37,7 +36,6 @@ body {
   display: block;
 }
 
-/* Banner Đầu Trang */
 .banner {
   background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); /* Màu hồng ngọt ngào neon */
   color: #ffffff;
