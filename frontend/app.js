@@ -1,31 +1,28 @@
-// Biến vai trò đăng ký (Mặc định: user)
 let currentRole = 'user';
 
-// Chuyển đổi màn hình
 function switchScreen(screenId) {
-  // Ẩn tất cả screens
+
   document.querySelectorAll('.form-screen').forEach(screen => {
     screen.classList.remove('active');
   });
 
-  // Hiện screen mục tiêu
+
   const targetScreen = document.getElementById(screenId);
   if (targetScreen) {
     targetScreen.classList.add('active');
   }
 
-  // Khôi phục các thông báo cũ
+  
   hideBanners();
 }
 
-// Ẩn tất cả banner báo lỗi / thành công
 function hideBanners() {
   document.getElementById('login-error').classList.add('hidden');
   document.getElementById('register-error').classList.add('hidden');
   document.getElementById('register-success').classList.add('hidden');
 }
 
-// Thiết lập vai trò
+
 function setRole(role) {
   currentRole = role;
   document.querySelectorAll('.segment-btn').forEach(btn => {
@@ -39,7 +36,6 @@ function setRole(role) {
   }
 }
 
-// Đổi trạng thái hiển thị mật khẩu
 document.getElementById('btn-toggle-password').addEventListener('click', () => {
   const passwordInput = document.getElementById('login-password');
   const btn = document.getElementById('btn-toggle-password');
@@ -52,14 +48,13 @@ document.getElementById('btn-toggle-password').addEventListener('click', () => {
   }
 });
 
-// Xử lý điền demo nhanh
+
 document.getElementById('btn-demo').addEventListener('click', () => {
   document.getElementById('login-phone').value = '0901234567';
   document.getElementById('login-password').value = 'admin123';
   hideBanners();
 });
 
-// Xử lý nộp form đăng nhập (Login Submit)
 document.getElementById('login-form').addEventListener('submit', (e) => {
   e.preventDefault();
   hideBanners();
@@ -68,7 +63,6 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
   const password = document.getElementById('login-password').value;
   const errorBox = document.getElementById('login-error');
 
-  // Kiểm tra tài khóa cục bộ trong localStorage
   const storedUsers = JSON.parse(localStorage.getItem('ray_users') || '[]');
   const matchedUser = storedUsers.find(u => u.phone === phone);
 
@@ -79,7 +73,7 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
     alert('Đăng nhập thành công với tài khoản: ' + matchedUser.fullName);
     console.log('Ray User logged in: ', matchedUser);
   } else if (phone.length >= 9 && password.length >= 6) {
-    // Tự động vượt qua đối với mục đích dễ dàng kiểm tra thử nghiệm
+    
     alert('Đăng nhập thành công! Tạo tài khoản thử nghiệm nhanh cho Số: ' + phone);
   } else {
     errorBox.innerText = 'Số điện thoại hoặc mật khẩu chưa đúng. (Thử demo: 0901234567 / admin123)';
@@ -87,7 +81,6 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
   }
 });
 
-// Xử lý nộp form đăng ký (Register Submit)
 document.getElementById('register-form').addEventListener('submit', (e) => {
   e.preventDefault();
   hideBanners();
@@ -113,7 +106,6 @@ document.getElementById('register-form').addEventListener('submit', (e) => {
     return;
   }
 
-  // Đăng ký lưu dữ liệu
   const newUser = {
     fullName,
     phone,
@@ -130,12 +122,9 @@ document.getElementById('register-form').addEventListener('submit', (e) => {
   }
 
   storedUsers.push(newUser);
-  localStorage.setItem('ray_users', JSON.stringify(storedUsers));
-
-  // Hiển thị thành công tải
+  localStorage.setItem('ray_users', JSON.stringify(
   successBox.classList.remove('hidden');
   
-  // Tự động điền qua ô đăng nhập sau 1.5 giây
   setTimeout(() => {
     switchScreen('login-screen');
     document.getElementById('login-phone').value = phone;
